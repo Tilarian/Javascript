@@ -2,31 +2,33 @@ const OPCION_SALIR = 4;
 const IVA = 1.22;
 let TotalDeProducto = 1000;
 const ArrayDeProductos = []
+let idUniversal = 1;
 
 class Producto {
-        constructor(nombre, precio, categoria) {
+        constructor(nombre, precio, categoria, id) {
                 this.nombre = nombre;
                 this.precio = precio;
                 this.categoria = categoria;
+                this.id = id;
         }
 }
 
-const celular1 = new Producto("Samsung Galaxy", 1000, "celulares");
+const celular1 = new Producto("Samsung Galaxy", 1000, "celulares", idUniversal++);
 ArrayDeProductos.push(celular1);
 
-const celular2 = new Producto("Iphone", 1000, "celulares");
+const celular2 = new Producto("Iphone", 1000, "celulares", idUniversal++);
 ArrayDeProductos.push(celular2);
 
-const auricular1 = new Producto("Auriculares Hyperx", 1000, "perifericos");
+const auricular1 = new Producto("Auriculares Hyperx", 1000, "perifericos", idUniversal++);
 ArrayDeProductos.push(auricular1);
 
-const auricular2 = new Producto("Auriculares Logitech", 1000, "perifericos");
+const auricular2 = new Producto("Auriculares Logitech", 1000, "perifericos", idUniversal++);
 ArrayDeProductos.push(auricular2);
 
-const consola1 = new Producto("Playstation 5", 1000, "consolas");
+const consola1 = new Producto("Playstation 5", 1000, "consolas", idUniversal++);
 ArrayDeProductos.push(consola1);
 
-const consola2 = new Producto("Playstation 4", 1000, "consolas");
+const consola2 = new Producto("Playstation 4", 1000, "consolas", idUniversal++);
 ArrayDeProductos.push(consola2);
 
 
@@ -35,7 +37,7 @@ const mostrarProductoPorCategoria = (categoria) => {
         const filtrado = ArrayDeProductos.filter((el) => el.categoria === categoria);
         let mensajeAMostrar = '';
         filtrado.forEach((el) => {
-                mensajeAMostrar += `Producto: ${el.nombre} Precio: ${el.precio}`
+                mensajeAMostrar += `\n-Producto: ${el.nombre} \nPrecio: ${el.precio}`
         })
         alert(mensajeAMostrar);
 }
